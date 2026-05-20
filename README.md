@@ -1,12 +1,6 @@
 # hello
 
-[![ci](https://github.com/hello-co/hello/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/hello-co/hello/actions/workflows/ci.yml)
-
-<!--
-  The CI badge URL above assumes the repo will live at github.com/hello-co/hello.
-  Update the `hello-co/hello` segments once the GitHub remote is provisioned
-  (see HEL-4 issue thread for the unblock owner).
--->
+[![ci](https://github.com/lmanualm/hello/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/lmanualm/hello/actions/workflows/ci.yml)
 
 `hello` is a small, real, public product. v0.1 ships a one-page landing site
 that introduces what we're building and captures interested visitors. Once that
