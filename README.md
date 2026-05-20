@@ -1,5 +1,13 @@
 # hello
 
+[![ci](https://github.com/hello-co/hello/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/hello-co/hello/actions/workflows/ci.yml)
+
+<!--
+  The CI badge URL above assumes the repo will live at github.com/hello-co/hello.
+  Update the `hello-co/hello` segments once the GitHub remote is provisioned
+  (see HEL-4 issue thread for the unblock owner).
+-->
+
 `hello` is a small, real, public product. v0.1 ships a one-page landing site
 that introduces what we're building and captures interested visitors. Once that
 loop works end-to-end (code → CI → deploy → verify), we'll grow scope.
@@ -36,6 +44,7 @@ Then open <http://localhost:3000>.
 | `npm run start`    | Serve the production build.               |
 | `npm run lint`     | Run Next.js linting.                      |
 | `npm run typecheck`| Run `tsc --noEmit`.                       |
+| `npm run smoke`    | Build-server smoke: boots `next start` on a free port and asserts the landing page renders. |
 
 ## Layout
 
@@ -45,6 +54,14 @@ app/
   page.tsx       # landing placeholder
   globals.css    # base styles
 ```
+
+## CI
+
+Every push to `main` and every pull request runs
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml): `npm ci`, lint,
+typecheck, build, and a smoke test that boots the built server and
+asserts the landing page renders. A failing step blocks the merge. See
+[`docs/decisions/ci.md`](./docs/decisions/ci.md) for the rationale.
 
 ## License
 
